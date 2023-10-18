@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { client } from './src/connectDB.js'
+import { getAllMenuItems } from './src/menu.js'
 
 const app = express()
 const PORT = 3000
@@ -11,6 +12,8 @@ app.use(cors())
 app.get("/", (req, res) => {
     res.send("Hello!")
 })
+
+app.get("/menu", getAllMenuItems)
 
 app.listen(PORT, () => {
     console.log(`Listening on http://localhost:${PORT}...`)
