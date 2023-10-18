@@ -1,6 +1,6 @@
 import { client } from "./connectDB.js"
 
-export async function getAllMenuItems(){
+export async function getAllMenuItems(req, res){
     const result = await client.query('SELECT * FROM menu')
-    result.send(result.rows)
+    res.send(result.rows)
 }
